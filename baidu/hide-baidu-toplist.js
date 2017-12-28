@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         清除页面不喜欢的内容（自用工具）
 // @namespace    http://doracoin.me/2017/09/09/hide-baidu-toplist/
-// @version      1.0.0
+// @version      1.0.2
 // @description  破J8百度
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
