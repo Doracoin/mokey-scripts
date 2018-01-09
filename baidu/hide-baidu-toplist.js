@@ -7,6 +7,7 @@
 // @match        http*://www.baidu.com/s?wd=*
 // @match        http*://www.baidu.com/s?*wd=*
 // @match        http*://www.baidu.com/baidu?wd=*
+// @match        http*://www.sohu.com/a/*
 // @match        http*://jiecaobao.com/*
 // @match        https://wuzhi.me/*
 // @grant        none
@@ -52,4 +53,9 @@
         // footer_container[0].
     }
 
+    // 屏蔽搜狐右边的垃圾推荐
+    var sohuRightBar = document.getElementsByClassName("sidebar right");
+    if(sohuRightBar!=null && sohuRightBar.length > 0){
+        sohuRightBar[0].style.display="none";
+    }
 })();
