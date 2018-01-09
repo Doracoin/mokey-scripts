@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    http://doracoin.me/2017/09/09/hide-baidu-toplist/
-// @version      1.2
+// @version      1.3
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
@@ -50,7 +50,7 @@
     }
     var footer_container = document.getElementsByClassName("footer container");
     if(footer_container!=null && footer_container.length > 0){
-        // footer_container[0].
+        // 
     }
 
     // 屏蔽搜狐右边的垃圾推荐
