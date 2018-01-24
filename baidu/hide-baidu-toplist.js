@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
-// @namespace    http://doracoin.me/2017/09/09/hide-baidu-toplist/
-// @version      1.3
+// @namespace    https://doracoin.me/archives/hide-baidu-toplist.html
+// @version      1.4
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
@@ -10,6 +10,7 @@
 // @match        http*://www.sohu.com/a/*
 // @match        http*://jiecaobao.com/*
 // @match        https://wuzhi.me/*
+// @match        https://rule34.xxx/*
 // @grant        none
 // ==/UserScript==
 
@@ -57,5 +58,18 @@
     var sohuRightBar = document.getElementsByClassName("sidebar right");
     if(sohuRightBar!=null && sohuRightBar.length > 0){
         sohuRightBar[0].style.display="none";
+    }
+
+    // 屏蔽某网站广告
+    var paginator = document.getElementById("paginator");
+    if(paginator!=null){
+        console.log(paginator);
+        var inners = document.getElementsByTagName("center");
+        if(inners!=null && inners.length > 0){
+            console.log(inners);
+            for (var k=0;k< inners.length;k++) {
+                inners[k].style.display="none";
+            }
+        }
     }
 })();
