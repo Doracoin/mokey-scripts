@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://doracoin.me/archives/hide-baidu-toplist.html
-// @version      1.4
+// @version      1.4.1
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
