@@ -11,6 +11,7 @@
 // @match        http*://jiecaobao.com/*
 // @match        https://wuzhi.me/*
 // @match        https://rule34.xxx/*
+// @match        *://mp.weixin.qq.com/s?*
 // @grant        none
 // ==/UserScript==
 
@@ -71,5 +72,13 @@
                 inners[k].style.display="none";
             }
         }
+    }
+
+    // 尝试显示微信文章封面图片
+    console.log("doracoin");
+    var weixinPageTitleContent = document.getElementById("img-content");
+    if(weixinPageTitleContent!=null){
+       console.log("doracoin");
+       console.log("msg_cdn_url");//封面地址变量
     }
 })();
