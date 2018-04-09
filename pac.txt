@@ -1,4 +1,4 @@
-﻿var direct = "__DIRECT__";
+var direct = "__DIRECT__";
 if (direct == "__DIR" + "ECT__") direct = "DIRECT;";
 
 var wall_proxy = function(){ return "__PROXY__"; };
@@ -14,6 +14,16 @@ var ipv6_proxy = function(){ return nowall_proxy(); };
  */
 
 var rules = [
+	"||gfycat.com",
+	"||deviantart.net",
+	"||deviantart.com",
+	"||tv-static.net",
+	"||gitea.io",
+	"||gogs.io",
+	"||biezhi.me",
+	"||yuanbin.me",
+	"||fonts.css.network",
+	"||cloudfront.net",
 	"||telesco.pe",
 	"||t.me",
 	"||steamcommunity.com",
