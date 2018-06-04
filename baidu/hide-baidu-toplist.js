@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://doracoin.me/archives/hide-baidu-toplist.html
-// @version      1.4.1
+// @version      1.4.2
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
 // @match        http*://www.baidu.com/s?*wd=*
 // @match        http*://www.baidu.com/baidu?wd=*
+// @match        http*://baike.baidu.com/*
 // @match        http*://www.sohu.com/a/*
 // @match        http*://jiecaobao.com/*
 // @match        https://wuzhi.me/*
@@ -23,6 +24,15 @@
     if (ht.length > 0) {
         ht[ht.length-1].style.display="none";
         console.log("已关闭百度的搜索热点，过滤垃圾信息，维护上网环境");
+    }
+
+    var baidu_baike_right_v = document.getElementsByClassName("lemmaWgt-promotion-vbaike");
+    console.log('V-百科滚动窗: '+baidu_baike_right_v.length);
+    if (baidu_baike_right_v != null && baidu_baike_right_v.length > 0){
+        setTimeout(function(){
+        baidu_baike_right_v[baidu_baike_right_v.length-1].style.display="none";
+        console.log("已关闭百度百科右侧垃圾信息，过滤垃圾信息，维护上网环境");
+        },500);
     }
 
     // jiecaobao.com
