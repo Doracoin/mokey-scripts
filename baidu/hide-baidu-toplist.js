@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.4.4
+// @version      1.4.5
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        http*://www.baidu.com/s?wd=*
@@ -13,6 +13,7 @@
 // @match        https://wuzhi.me/*
 // @match        https://rule34.xxx/*
 // @match        *://mp.weixin.qq.com/s?*
+// @match        *://blog.csdn.net/*
 // @grant        none
 // ==/UserScript==
 
@@ -105,6 +106,14 @@
         if(weixinPageTitleContent!=null){
            console.log("doracoin");
            console.log("msg_cdn_url");//封面地址变量
+        }
+    }
+
+    // 清除CSDN学院广告
+    else if (window.location.host == "blog.csdn.net") {
+        var csdn_edu = document.getElementsByClassName("edu-promotion");
+        if (csdn_edu != null && csdn_edu.length > 0) {
+            csdn_edu[0].style.display="none";
         }
     }
 })();
