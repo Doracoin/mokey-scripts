@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.4.7
+// @version      1.4.8
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        *://www.baidu.com/s?wd=*
@@ -19,11 +19,10 @@
 
 (function() {
     'use strict';
-    console.log("current host is : " + window.location.host);
+    console.log("doracoin's kit: current host is : " + window.location.host);
     // Baidu
     if (window.location.host == "www.baidu.com"){
         var ht=document.getElementsByClassName("cr-content ");
-        console.log('baidu-hotlist: ' + ht);
         if (ht != null && ht.length > 0) {
             ht[ht.length-1].style.display="none";
             console.log("已关闭百度的搜索热点，过滤垃圾信息，维护上网环境");
@@ -53,7 +52,7 @@
     }
 
     // 吾志-日记网站
-	else if (window.location.host == "wuzhi.me"){
+    else if (window.location.host == "wuzhi.me"){
         var header = document.getElementsByClassName("header");
 	    if(header!=null && header.length > 0 ){
 		    header[0].style.background="#0097A7";
@@ -74,6 +73,7 @@
         if(footer_container!=null && footer_container.length > 0){
             //
         }
+	console.log("已更改部分页面样式");
     }
 
     // 屏蔽搜狐右边的垃圾推荐
@@ -81,6 +81,7 @@
        var sohuRightBar = document.getElementsByClassName("sidebar right");
        if(sohuRightBar!=null && sohuRightBar.length > 0){
           sohuRightBar[0].style.display="none";
+	  console.log("已屏蔽搜狐右侧垃圾推荐信息");
        }
     }
 
@@ -104,8 +105,6 @@
         console.log("doracoin");
         var weixinPageTitleContent = document.getElementById("img-content");
         if(weixinPageTitleContent!=null){
-           console.log("doracoin");
-           console.log("msg_cdn_url");//封面地址变量
         }
     }
 
@@ -123,5 +122,6 @@
         if (btnReadMore !=null){
             btnReadMore.click();
         }
+	console.log("已屏蔽CSDN学院广告并自动展开全文");
     }
 })();
