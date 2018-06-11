@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.4.6
+// @version      1.4.7
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        *://www.baidu.com/s?wd=*
