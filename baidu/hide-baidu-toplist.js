@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.5.0
+// @version      1.5.1
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        *://www.baidu.com/*
@@ -39,8 +39,15 @@
         var counts = 1;// 计数标识
         var checkVisible = function(){
             var i=0;
-            var baike_right_v = document.getElementsByClassName("lemmaWgt-promotion-vbaike");
+            // 右上角小广告
+            var baike_right_topA = document.getElementsByClassName("topA");
+            if (baike_right_topA != null && baike_right_topA.length > 0){
+                for (i=0; i<baike_right_topA.length; i++) {
+                    baike_right_topA[i].style.display="none";
+                }
+            }
             // 右侧V百科
+            var baike_right_v = document.getElementsByClassName("lemmaWgt-promotion-vbaike");
             if (baike_right_v != null && baike_right_v.length > 0){
                 for (i=0; i<baike_right_v.length; i++) {
                     baike_right_v[i].style.display="none";
