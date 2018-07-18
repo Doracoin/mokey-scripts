@@ -1,0 +1,33 @@
+// This file a written by Doracoin.
+// 只记录了一些自己发现的 the site can't visit or not fast access.
+// 独立于自动更新的pac,使用时请手动复制域名列表到更新过后的pac.txt中.
+
+var rules = [
+  "||pixiv.cat",
+  "||discordapp.com",
+  "||the-maphack.com",
+  "||pixabay.com",
+  "||jetbrains.com",
+  "||coolbackgrounds.io",
+  "||roots.io",
+  "||pximg.net",
+  "||mozilla.net",
+  "||mozilla.org",
+  "||firefox.com",
+  "||gitbooks.io",
+  "||flickr.com",
+  "||caddyserver.com",
+  "||smyte.com",
+  "||gfycat.com",
+  "||deviantart.net",
+  "||deviantart.com",
+  "||tv-static.net",
+  "||gitea.io",
+  "||gogs.io",
+  "||biezhi.me",
+  "||yuanbin.me",
+  "||fonts.css.network",
+  "||cloudfront.net",
+  "||2dbook.com",
+  "||4tern.com",
+];
