@@ -12,6 +12,7 @@ var rules = [
   "||imgur.com",
   "||grimtools.com",
   "||kissjav.com",
+  "||humblebundle.com",
   "||pinterest.com",
   "||nexusmods.com",
   "||pixiv.cat",
