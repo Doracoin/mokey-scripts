@@ -13,6 +13,7 @@ var rules = [
   "||steampowered.com",
   "||steam.tools",
   "||steamcardexchange.net",
+  "||telegra.gh",
   "||siimg.com",
   "||x6img.com",
   "||imgix.net",
