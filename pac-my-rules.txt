@@ -3,6 +3,7 @@
 // 独立于自动更新的pac,使用时请手动复制域名列表到更新过后的pac.txt中.
 
 var rules = [
+  "||steamcardexchange.net",
   "||telegra.ph",
   "||siimg.com",
   "||x6img.com",
