@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.5.2
+// @version      1.5.3
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        *://www.baidu.com/*
@@ -169,6 +169,10 @@
         if (csdn_edu2 != null && csdn_edu2.length > 0) {
             csdn_edu2[0].style.display="none";
         }
+        var csdn_edu3 = document.getElementsByClassName("fourth_column");
+        if (csdn_edu3 != null && csdn_edu3.length > 0) {
+            csdn_edu3[0].style.display="none";
+        }
         var loginDiv = document.getElementsByClassName("pulllog-box");
         if (loginDiv != null && loginDiv.length > 0) {
             loginDiv[0].style.display="none";
@@ -177,6 +181,6 @@
         if (btnReadMore !=null){
             btnReadMore.click();
         }
-        console.log("已屏蔽CSDN学院广告并自动展开全文");
+        console.log("已隐藏CSDN广告并自动展开全文");
     }
 })();
