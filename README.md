@@ -1,2 +1,2 @@
-# mokey-scripts
-存放一些浏览器脚本
+# tool-scripts
+存放一些脚本/文件
