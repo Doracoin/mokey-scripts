@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.5.3
+// @version      1.5.4
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
 // @match        *://www.baidu.com/*
@@ -12,6 +12,7 @@
 // @match        *://rule34.xxx/*
 // @match        *://mp.weixin.qq.com/s?*
 // @match        *://blog.csdn.net/*
+// @match        *://www.pixiv.net/search.php*
 // @grant        none
 // ==/UserScript==
 
@@ -181,6 +182,19 @@
         if (btnReadMore !=null){
             btnReadMore.click();
         }
+        var btnReadMoreClass = document.getElementsByClassName("btn-readmore");
+        if (btnReadMoreClass !=null){
+            btnReadMoreClass[0].click();
+        }
         console.log("已隐藏CSDN广告并自动展开全文");
+    }
+
+    // 去除 Pixiv搜索结果中提示“premium会员”的蒙板
+    else if (window.location.host == "www.pixiv.net") {
+        console.log("正在尝试去除会员广告的蒙板");
+        var pxPreAD = document.getElementsByClassName("popular-introduction-overlay");
+        if (pxPreAD != null && pxPreAD.length > 0) {
+            pxPreAD[0].style.display="none";
+        }
     }
 })();
