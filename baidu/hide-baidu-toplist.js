@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name         Doracoin的自用工具
 // @namespace    https://greasyfork.org/scripts/36797-doracoin%E7%9A%84%E8%87%AA%E7%94%A8%E5%B7%A5%E5%85%B7
-// @version      1.5.4
+// @version      1.5.5
 // @description  清除某些页面自己不喜欢的内容，或更改某些网站的样式
 // @author       Doracoin
-// @match        *://www.baidu.com/*
-// @match        *://baike.baidu.com/*
 // @match        *://www.sohu.com/a/*
 // @match        *://jiecaobao.com/*
 // @match        *://wuzhi.me/*
@@ -13,88 +11,17 @@
 // @match        *://mp.weixin.qq.com/s?*
 // @match        *://blog.csdn.net/*
 // @match        *://www.pixiv.net/search.php*
+// @match        *://www.pixiv.net/*/artworks/*
+// @match        *://996.icu/*
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
     console.log("doracoin's kit: current host is : " + window.location.host);
-    // Baidu
-    if (window.location.host == "www.baidu.com"){
-        window.onhashchange = function () {
-            console.log("onhaschange");
-            var ht = document.getElementById("content_right");
-            if (ht != null) {
-                ht.style.display="none";
-                console.log("已屏蔽百度搜索右侧信息，过滤垃圾信息，维护上网环境");
-            }
-        }
-    }
-
-    // BaiduBaike
-    else if (window.location.host == "baike.baidu.com") {
-        // 不要觉得这段代码冗余甚至无聊，毕竟它是用来应付百度的
-        // 重试超时时间 / 间隔时间 = 总重试次数
-        var total_time = 5000;
-        var delayed_time = 200;
-        var counts = 1;// 计数标识
-        var checkVisible = function(){
-            var i=0;
-            // 右上角小广告
-            var baike_right_topA = document.getElementsByClassName("topA");
-            if (baike_right_topA != null && baike_right_topA.length > 0){
-                for (i=0; i<baike_right_topA.length; i++) {
-                    baike_right_topA[i].style.display="none";
-                }
-            }
-            // 右侧V百科
-            var baike_right_v = document.getElementsByClassName("lemmaWgt-promotion-vbaike");
-            if (baike_right_v != null && baike_right_v.length > 0){
-                for (i=0; i<baike_right_v.length; i++) {
-                    baike_right_v[i].style.display="none";
-                }
-            }
-            // 右侧秒懂百科
-            var baike_right_s = document.getElementsByClassName("lemmaWgt-promotion-slide");
-            if (baike_right_s != null && baike_right_s.length > 0){
-                for (i=0; i<baike_right_s.length; i++) {
-                    baike_right_s[i].style.display="none";
-                }
-            }
-            // 右侧热点广告
-            var bake_side_box_ad = document.getElementById("side_box_unionAd");
-            if (bake_side_box_ad != null){
-                bake_side_box_ad.style.display="none";
-            }
-            // 右下角小图标广告
-            var bake_right_ad = document.getElementsByClassName("right-ad");
-            if (bake_right_ad != null){
-                for (i=0; i<bake_right_ad.length; i++) {
-                    bake_right_ad[i].style.display="none";
-                }
-            }
-            // 底部垃圾广告
-            var bake_after_content_ad = document.getElementsByClassName("after-content");
-            if (bake_after_content_ad != null){
-                for (i=0; i<bake_after_content_ad.length; i++) {
-                    bake_after_content_ad[i].style.display="none";
-                }
-            }
-            // 可能会由于'懒加载'导致此次没有找到相应标签，使用定时任务多次尝试
-            if (counts <= (total_time/delayed_time)) {
-                // console.log("百科右侧垃圾信息没有全部屏蔽，正在重试：第" + counts + "次");
-                setTimeout(checkVisible, delayed_time);
-                counts++;
-            } else {
-                console.log("垃圾信息已全部屏蔽，共尝试了" + (total_time/delayed_time) + "次");
-            }
-        };
-        // 立即执行
-        setTimeout(checkVisible, 0);
-    }
 
     // jiecaobao.com
-    else if (window.location.host == "jiacaobao.com") {
+    if (window.location.host == "jiacaobao.com") {
         var unlikeImg=document.getElementsByClassName("alignnone");
         console.log('unlikeImg: ' + unlikeImg);
         if (unlikeImg.length > 0){
@@ -196,5 +123,19 @@
         if (pxPreAD != null && pxPreAD.length > 0) {
             pxPreAD[0].style.display="none";
         }
+        // 去除Pixiv作品页右侧动图广告
+        var gifAds = document.getElementById("ad_img");
+        if (gifAds != null) {
+            gifAds.src="https://www.pixiv.net/favicon.ico";
+        }
+        var frameAds = document.getElementById("imobile_adspotframe1");
+        if (frameAds != null) {
+            frameAds.style.display="none";
+        }
+    }
+
+    // 996.ICU的背景色粉色太伤眼睛了，自行替换为深蓝色
+    else if (window.location.host == "996.icu") {
+        document.body.style.backgroundColor="#003873";
     }
 })();
